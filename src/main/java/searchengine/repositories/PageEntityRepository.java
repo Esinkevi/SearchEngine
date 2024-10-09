@@ -16,17 +16,12 @@ public interface PageEntityRepository extends JpaRepository<PageEntity, Long> {
 
     void deleteBySiteId(SiteEntity site);
 
-    boolean existsByPath(String path);
-
     PageEntity findBySiteIdAndPath(SiteEntity siteId, String path);
 
     List<PageEntity> findBySiteId(SiteEntity siteEntity);
 
     boolean existsByPathAndSiteId(String path, SiteEntity siteId);
     long countBySiteId(SiteEntity siteId);
-//
-    PageEntity findById(long pageId);
-//
-//    List<PageEntity> findByPageId(IndexEntity pageId);
+
 
 }

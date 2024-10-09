@@ -162,7 +162,7 @@ public class IndexingSite extends RecursiveAction {
     private boolean shouldInterrupt() {
         if (interruptedFlag) {
 
-            forkJoinpool.awaitQuiescence(1,TimeUnit.MINUTES);
+            forkJoinpool.awaitQuiescence(1, TimeUnit.MINUTES);
             updateSiteStatus(SiteEntityStatus.FAILED, "Индексация остановлена пользователем");
             logger.info("Индексация остановлена пользователем");
             return true;

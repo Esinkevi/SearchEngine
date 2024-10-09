@@ -59,9 +59,6 @@ public class ProcessSite {
         for (Site site : sitesLists) {
             String name = site.getName();
             String url = site.getUrl();
-
-//            deleteSiteAndRelatedPages(url);
-
             SiteEntity siteEntity = new SiteEntity();
             siteEntity.setUrl(url);
             siteEntity.setName(name);
@@ -75,19 +72,4 @@ public class ProcessSite {
         siteEntityRepository.saveAll(listSiteEntitySaveInData);
     }
 
-
-    private void deleteSiteAndRelatedPages(String url) {
-        SiteEntity siteEntity = siteEntityRepository.findByUrl(url);
-        if (siteEntity != null) {
-//            System.out.println("Вошел в метод удаления");
-//            lemmaEntityRepository.deleteAllBySiteId(siteEntity);
-//            List<PageEntity> pageEntityList = pageEntityRepository.findBySiteId(siteEntity);
-//            for (PageEntity pageEntity : pageEntityList) {
-//                indexEntityRepository.deleteByPageId(pageEntity);
-//            }
-            pageEntityRepository.deleteBySiteId(siteEntity);
-            siteEntityRepository.deleteSiteByUrl(siteEntity.getUrl());
-            logger.info("delete SiteEntity and Related Pages " + siteEntity.getName());
-        }
-    }
 }

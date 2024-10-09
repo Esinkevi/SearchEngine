@@ -28,6 +28,5 @@ public interface SiteEntityRepository extends JpaRepository<SiteEntity, Long> {
             @Param("lastErrorText") String lastErrorText
     );
 
-    long count();
 
 }
